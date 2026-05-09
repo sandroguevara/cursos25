@@ -3,7 +3,7 @@ package com.formacionbdi.microservicios.app.usuarios.controllers;
 import java.io.IOException;
 import java.util.Optional;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
