@@ -1,0 +1,76 @@
+{
+  "info": {
+    "name": "cursos25-microservicios",
+    "description": "Coleccion de pruebas para cursos25_microservicios - Spring Boot 4.0.6 / Java 21 / Spring Cloud 2025.1.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8090/api",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "ALUMNOS",
+      "item": [
+        { "name": "Listar alumnos", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/alumnos", "description": "Listar todos los alumnos" } },
+        { "name": "Alumnos paginados", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/alumnos/pagina?page=0&size=10", "description": "Listar alumnos paginados" } },
+        { "name": "Ver alumno ID 1", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/alumnos/1", "description": "Ver alumno por ID" } },
+        { "name": "Crear alumno", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/alumnos", "body": { "mode": "raw", "raw": "{\"nombre\":\"TestAlumno\",\"apellido\":\"TestApellido\",\"email\":\"testalumno@test.com\"}" }, "description": "Crear alumno nuevo" } },
+        { "name": "Editar alumno ID 1", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/alumnos/1", "body": { "mode": "raw", "raw": "{\"nombre\":\"TestAlumnoUpd\",\"apellido\":\"TestApellido\",\"email\":\"testalumno@test.com\"}" }, "description": "Editar alumno" } },
+        { "name": "Buscar alumnos por termino", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/alumnos/filtrar/test", "description": "Filtrar alumnos" } },
+        { "name": "Ver foto alumno ID 1", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/alumnos/uploads/img/1", "description": "Ver foto del alumno" } },
+        { "name": "Crear segundo alumno", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/alumnos", "body": { "mode": "raw", "raw": "{\"nombre\":\"OtroAlumno\",\"apellido\":\"OtroApellido\",\"email\":\"otro@test.com\"}" }, "description": "Crear segundo alumno" } },
+        { "name": "Ver alumno inexistente (404)", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/alumnos/9999", "description": "404 esperado" } },
+        { "name": "Eliminar alumno inexistente (404)", "request": { "method": "DELETE", "header": [], "url": "{{baseUrl}}/alumnos/9999", "description": "404 esperado" } }
+      ]
+    },
+    {
+      "name": "EXAMENES",
+      "item": [
+        { "name": "Listar examenes", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/examenes", "description": "Listar todos los examenes" } },
+        { "name": "Examenes paginados", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/examenes/pagina?page=0&size=10", "description": "Listar examenes paginados" } },
+        { "name": "Ver examen ID 1", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/examenes/1", "description": "Ver examen por ID" } },
+        { "name": "Filtrar examenes por 'parcial'", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/examenes/filtrar/parcial", "description": "Filtrar examenes" } },
+        { "name": "Listar asignaturas", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/examenes/asignaturas", "description": "Listar asignaturas" } },
+        { "name": "Crear examen", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/examenes", "body": { "mode": "raw", "raw": "{\"nombre\":\"Test Examen\",\"asignatura\":{\"id\":1}}" }, "description": "Crear examen" } },
+        { "name": "Editar examen ID 1", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/examenes/1", "body": { "mode": "raw", "raw": "{\"nombre\":\"Test Examen Upd\",\"asignatura\":{\"id\":1},\"preguntas\":[]}" }, "description": "Editar examen" } },
+        { "name": "Ver examen inexistente (404)", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/examenes/9999", "description": "404 esperado" } },
+        { "name": "Eliminar examen inexistente (404)", "request": { "method": "DELETE", "header": [], "url": "{{baseUrl}}/examenes/9999", "description": "404 esperado" } },
+        { "name": "Filtrar sin resultados (404)", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/examenes/filtrar/ningunexamen", "description": "404 esperado" } }
+      ]
+    },
+    {
+      "name": "CURSOS",
+      "item": [
+        { "name": "Listar cursos", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/cursos", "description": "Listar todos los cursos" } },
+        { "name": "Cursos paginados", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/cursos/pagina?page=0&size=10", "description": "Listar cursos paginados" } },
+        { "name": "Ver curso ID 1", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/cursos/1", "description": "Ver curso por ID" } },
+        { "name": "Probar balanceador", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/cursos/balanceador-test", "description": "Probar balanceador de carga" } },
+        { "name": "Crear curso", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/cursos", "body": { "mode": "raw", "raw": "{\"nombre\":\"Test Curso\"}" }, "description": "Crear curso" } },
+        { "name": "Editar curso ID 1", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/cursos/1", "body": { "mode": "raw", "raw": "{\"nombre\":\"Test Curso Upd\"}" }, "description": "Editar curso" } },
+        { "name": "Ver cursos del alumno ID 1 (Feign)", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/cursos/alumno/1", "description": "Ver cursos del alumno (usa Feign -> respuestas)" } },
+        { "name": "Asignar alumno al curso", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/cursos/1/asignar-alumnos", "body": { "mode": "raw", "raw": "[{\"id\":1,\"nombre\":\"TestAlumno\",\"apellido\":\"TestApellido\",\"email\":\"testalumno@test.com\"}]" }, "description": "Asignar alumno al curso" } },
+        { "name": "Ver curso inexistente (404)", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/cursos/9999", "description": "404 esperado" } },
+        { "name": "Eliminar curso inexistente (404)", "request": { "method": "DELETE", "header": [], "url": "{{baseUrl}}/cursos/9999", "description": "404 esperado" } }
+      ]
+    },
+    {
+      "name": "RESPUESTAS",
+      "item": [
+        { "name": "Listar respuestas", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/respuestas", "description": "Listar todas las respuestas" } },
+        { "name": "Ver respuesta ID 1", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/respuestas/1", "description": "Ver respuesta por ID" } },
+        { "name": "Respuestas alumno 1 en examen 1", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/respuestas/alumno/1/examen/1", "description": "Ver respuestas del alumno en un examen" } },
+        { "name": "Examenes respondidos alumno 1", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/respuestas/alumno/1/examenes-respondidos", "description": "Examenes respondidos por el alumno" } },
+        { "name": "Respuestas alumno inexistente (404)", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/respuestas/alumno/9999/examen/1", "description": "404 esperado" } },
+        { "name": "Examenes respondidos alumno inexistente (404)", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/respuestas/alumno/9999/examenes-respondidos", "description": "404 esperado" } },
+        { "name": "Eliminar respuesta ID 1", "request": { "method": "DELETE", "header": [], "url": "{{baseUrl}}/respuestas/1", "description": "Eliminar respuesta" } },
+        { "name": "Eliminar respuesta inexistente (404)", "request": { "method": "DELETE", "header": [], "url": "{{baseUrl}}/respuestas/9999", "description": "404 esperado" } },
+        { "name": "Ver respuesta inexistente (404)", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/respuestas/9999", "description": "404 esperado" } },
+        { "name": "Listar respuestas (verificacion final)", "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/respuestas", "description": "Verificacion final" } }
+      ]
+    }
+  ]
+}

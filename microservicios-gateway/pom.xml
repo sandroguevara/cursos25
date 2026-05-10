@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>4.0.6</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.formacionbdi.microservicios.app.gateway</groupId>
 	<artifactId>microservicios-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>microservicios-gateway</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Gateway con Spring Cloud Gateway 5.0.0 y Java 21/25</description>
 
 	<properties>
-		<java.version>25</java.version>
-		<spring-cloud.version>2025.0.0</spring-cloud.version>
+		<!-- Java 21 es la versión LTS recomendada; también funciona con Java 25 -->
+		<java.version>21</java.version>
+		<!-- Spring Cloud Release Train Oakwood, compatible con Boot 4.0.x -->
+		<spring-cloud.version>2025.1.1</spring-cloud.version>
 	</properties>
 
 	<dependencies>
+		<!--
+			NUEVA DEPENDENCIA PARA GATEWAY EN SPRING CLOUD 2025.1.x
+			Basada en Spring MVC y Virtual Threads.
+			Reemplaza al antiguo spring-cloud-starter-gateway.
+		-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway</artifactId>
+			<artifactId>spring-cloud-starter-gateway-server-webmvc</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -35,6 +44,7 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -62,5 +72,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

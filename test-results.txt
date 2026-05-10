@@ -1,0 +1,60 @@
+﻿==============================================================
+RESULTADOS DE PRUEBAS - cursos25_microservicios
+==============================================================
+Fecha: 2026-05-10 09:50:11
+Base URL: http://localhost:8090/api
+
+RESUMEN
+- Total: 27
+- PASS:  10
+- FAIL:  17
+- Exito: 37%
+
+DETALLE
+Name | Method | Status | Expected | Result | Ms | Url
+Usuarios - listar | GET | 404 | 200 | FAIL | 101 | http://localhost:8090/api/alumnos
+Usuarios - pagina | GET | 404 | 200 | FAIL | 14 | http://localhost:8090/api/alumnos/pagina?page=0&size=5
+Usuarios - ver inexistente | GET | 404 | 404 | PASS | 6 | http://localhost:8090/api/alumnos/999999
+Usuarios - crear | POST | 404 | 201,400 | FAIL | 14 | http://localhost:8090/api/alumnos
+Usuarios - filtrar | GET | 404 | 200 | FAIL | 5 | http://localhost:8090/api/alumnos/filtrar/qa
+Usuarios - editar inexistente | PUT | 404 | 404,400 | PASS | 6 | http://localhost:8090/api/alumnos/999999
+Usuarios - foto inexistente | GET | 404 | 404 | PASS | 5 | http://localhost:8090/api/alumnos/uploads/img/999999
+Usuarios - eliminar inexistente | DELETE | 404 | 204,404 | PASS | 10 | http://localhost:8090/api/alumnos/999999
+Examenes - listar | GET | 404 | 200 | FAIL | 8 | http://localhost:8090/api/examenes
+Examenes - pagina | GET | 404 | 200 | FAIL | 6 | http://localhost:8090/api/examenes/pagina?page=0&size=5
+Examenes - asignaturas | GET | 404 | 200 | FAIL | 5 | http://localhost:8090/api/examenes/asignaturas
+Examenes - filtrar | GET | 404 | 200 | FAIL | 6 | http://localhost:8090/api/examenes/filtrar/parcial
+Examenes - ver inexistente | GET | 404 | 404 | PASS | 6 | http://localhost:8090/api/examenes/999999
+Examenes - crear invalido | POST | 404 | 400 | FAIL | 4 | http://localhost:8090/api/examenes
+Examenes - editar inexistente | PUT | 404 | 404,400 | PASS | 5 | http://localhost:8090/api/examenes/999999
+Examenes - eliminar inexistente | DELETE | 404 | 204,404 | PASS | 5 | http://localhost:8090/api/examenes/999999
+Cursos - listar | GET | 404 | 200 | FAIL | 6 | http://localhost:8090/api/cursos
+Cursos - pagina | GET | 404 | 200 | FAIL | 7 | http://localhost:8090/api/cursos/pagina?page=0&size=5
+Cursos - balanceador | GET | 404 | 200 | FAIL | 5 | http://localhost:8090/api/cursos/balanceador-test
+Cursos - ver inexistente | GET | 404 | 404 | PASS | 8 | http://localhost:8090/api/cursos/999999
+Cursos - crear | POST | 404 | 201,400 | FAIL | 6 | http://localhost:8090/api/cursos
+Cursos - editar inexistente | PUT | 404 | 404,400 | PASS | 5 | http://localhost:8090/api/cursos/999999
+Cursos - buscar por alumno | GET | 404 | 200 | FAIL | 8 | http://localhost:8090/api/cursos/alumno/1
+Cursos - eliminar inexistente | DELETE | 404 | 204,404 | PASS | 6 | http://localhost:8090/api/cursos/999999
+Respuestas - crear batch | POST | 404 | 201,400 | FAIL | 7 | http://localhost:8090/api/respuestas
+Respuestas - por alumno examen | GET | 404 | 200 | FAIL | 4 | http://localhost:8090/api/respuestas/alumno/1/examen/1
+Respuestas - examenes respondidos | GET | 404 | 200 | FAIL | 6 | http://localhost:8090/api/respuestas/alumno/1/examenes-respondidos
+
+FALLIDOS
+- Usuarios - listar: status=404, expected=200, url=http://localhost:8090/api/alumnos, error=
+- Usuarios - pagina: status=404, expected=200, url=http://localhost:8090/api/alumnos/pagina?page=0&size=5, error=
+- Usuarios - crear: status=404, expected=201,400, url=http://localhost:8090/api/alumnos, error=
+- Usuarios - filtrar: status=404, expected=200, url=http://localhost:8090/api/alumnos/filtrar/qa, error=
+- Examenes - listar: status=404, expected=200, url=http://localhost:8090/api/examenes, error=
+- Examenes - pagina: status=404, expected=200, url=http://localhost:8090/api/examenes/pagina?page=0&size=5, error=
+- Examenes - asignaturas: status=404, expected=200, url=http://localhost:8090/api/examenes/asignaturas, error=
+- Examenes - filtrar: status=404, expected=200, url=http://localhost:8090/api/examenes/filtrar/parcial, error=
+- Examenes - crear invalido: status=404, expected=400, url=http://localhost:8090/api/examenes, error=
+- Cursos - listar: status=404, expected=200, url=http://localhost:8090/api/cursos, error=
+- Cursos - pagina: status=404, expected=200, url=http://localhost:8090/api/cursos/pagina?page=0&size=5, error=
+- Cursos - balanceador: status=404, expected=200, url=http://localhost:8090/api/cursos/balanceador-test, error=
+- Cursos - crear: status=404, expected=201,400, url=http://localhost:8090/api/cursos, error=
+- Cursos - buscar por alumno: status=404, expected=200, url=http://localhost:8090/api/cursos/alumno/1, error=
+- Respuestas - crear batch: status=404, expected=201,400, url=http://localhost:8090/api/respuestas, error=
+- Respuestas - por alumno examen: status=404, expected=200, url=http://localhost:8090/api/respuestas/alumno/1/examen/1, error=
+- Respuestas - examenes respondidos: status=404, expected=200, url=http://localhost:8090/api/respuestas/alumno/1/examenes-respondidos, error=
